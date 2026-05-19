@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sanchita Jadhav | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Navbar */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(15,23,42,0.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:#a855f7;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    font-size:15px;
+}
+
+nav ul li a:hover{
+    color:#a855f7;
+}
+
+.toggle-btn{
+    background:#7c3aed;
+    border:none;
+    padding:10px 18px;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+}
+
+/* Hero Section */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 10%;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#7c3aed;
+    filter:blur(150px);
+    opacity:0.25;
+    z-index:-1;
+}
+
+.hero img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #a855f7;
+    box-shadow:0 0 40px rgba(168,85,247,0.5);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#a855f7;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    color:#cbd5e1;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 28px;
+    background:#7c3aed;
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    background:#9333ea;
+}
+
+/* Sections */
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    color:#a855f7;
+    margin-bottom:50px;
+}
+
+/* About */
+
+.about{
+    text-align:center;
+}
+
+.about p{
+    max-width:900px;
+    margin:auto;
+    line-height:2;
+    color:#cbd5e1;
+}
+
+/* Cards */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:22px;
+    transition:0.4s;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#a855f7;
+    box-shadow:0 0 30px rgba(168,85,247,0.2);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:12px;
+    color:#e9d5ff;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* Resume */
+
+.resume{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:40px;
+}
+
+.resume h3{
+    color:#a855f7;
+    margin-top:25px;
+    margin-bottom:10px;
+}
+
+.resume p{
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+/* Skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:20px;
+}
+
+.skills span{
+    background:#7c3aed;
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+/* Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Contact */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:12px 0;
+    color:#cbd5e1;
+}
+
+.socials{
+    margin-top:30px;
+}
+
+.socials a{
+    display:inline-block;
+    margin:10px;
+    text-decoration:none;
+    color:white;
+    border:1px solid rgba(255,255,255,0.08);
+    padding:12px 22px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.socials a:hover{
+    background:#7c3aed;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#94a3b8;
+}
+
+/* Light Mode */
+
+.light-mode{
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+.light-mode header{
+    background:rgba(255,255,255,0.8);
+}
+
+.light-mode nav ul li a{
+    color:#0f172a;
+}
+
+.light-mode .card,
+.light-mode .resume{
+    background:white;
+    color:#0f172a;
+}
+
+.light-mode p{
+    color:#334155;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+nav ul{
+    display:none;
+}
+
+.hero h1{
+    font-size:38px;
+}
+
+section{
+    padding:80px 7%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<header>
+
+<nav>
+
+<div class="logo">Sanchita.</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#achievements">Achievements</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#resume">Resume</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<button class="toggle-btn" onclick="toggleMode()">Mode</button>
+
+</nav>
+
+</header>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+
+<div>
+
+<img src="assets/profile.jpg" alt="Profile">
+
+<h1>Hi, I'm <span>Sanchita Jadhav</span></h1>
+
+<p>
+B.Pharm 1st Year Student passionate about healthcare, AI innovation, pharmaceutical sciences, creativity, and digital technology.
+</p>
+
+<a href="#contact" class="btn">Hire Me</a>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="about">
+
+<p>
+I am currently pursuing Bachelor of Pharmacy (B.Pharm) First Year.
+I enjoy learning about healthcare innovation, AI applications in medicine,
+research, and pharmaceutical technologies.
+<br><br>
+I actively participate in projects, technical activities, certification programs,
+and creative learning opportunities to improve my professional and personal skills.
+</p>
+
+</div>
+
+</section>
+
+<!-- Achievements -->
+
+<section id="achievements">
+
+<h2 class="section-title">Achievements & Certificates</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="assets/ai4a.jpg" alt="">
+<h3>AI4A Project</h3>
+<p>
+Successfully completed AI4A project related to Artificial Intelligence awareness and innovation.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/design-thinking.jpg" alt="">
+<h3>Design Thinking Project</h3>
+<p>
+Worked on creative problem-solving techniques and innovation-based approaches.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/ace-project.jpg" alt="">
+<h3>ACE Project</h3>
+<p>
+Participated in ACE project activities focused on leadership and skill development.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/coursera-cert.jpg" alt="">
+<h3>Coursera Certificate</h3>
+<p>
+Completed certified online learning programs from Coursera.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/netcad-cert.jpg" alt="">
+<h3>NetAcad Certificate</h3>
+<p>
+Successfully completed networking and digital learning certification.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/yuva-ai-cert.jpg" alt="">
+<h3>Yuva AI Certificate</h3>
+<p>
+Participated in AI awareness and modern technology learning activities.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="assets/project1.jpg" alt="">
+<h3>Healthcare Awareness Project</h3>
+<p>
+Created awareness materials related to healthcare and healthy lifestyle practices.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/project2.jpg" alt="">
+<h3>AI in Healthcare</h3>
+<p>
+Mini project based on Artificial Intelligence applications in healthcare systems.
+</p>
+</div>
+
+<div class="card">
+<img src="assets/project3.jpg" alt="">
+<h3>Pharmaceutical Research</h3>
+<p>
+Research-based academic activity related to pharmacy and healthcare technologies.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Resume -->
+
+<section id="resume">
+
+<h2 class="section-title">Resume</h2>
+
+<div class="resume">
+
+<h3>Profile</h3>
+
+<p>
+Sanchita Jadhav<br>
+B.Pharm First Year Student
+</p>
+
+<h3>Education</h3>
+
+<p>
+Bachelor of Pharmacy (B.Pharm)
+</p>
+
+<h3>Skills</h3>
+
+<div class="skills">
+
+<span>Communication</span>
+<span>Leadership</span>
+<span>Creativity</span>
+<span>Teamwork</span>
+<span>Digital Skills</span>
+<span>Problem Solving</span>
+
+</div>
+
+<h3>Certificates</h3>
+
+<p>
+AI4A, ACE Project, Design Thinking, Coursera, NetAcad, Yuva AI
+</p>
+
+<h3>Career Objective</h3>
+
+<p>
+To build a successful career in healthcare and pharmaceutical sciences while contributing to innovative medical technologies.
+</p>
+
+</div>
+
+</section>
+
+<!-- Gallery -->
+
+<section id="gallery">
+
+<h2 class="section-title">Gallery</h2>
+
+<div class="gallery">
+
+<img src="assets/gallery1.jpg" alt="">
+<img src="assets/gallery2.jpg" alt="">
+<img src="assets/gallery3.jpg" alt="">
+<img src="assets/gallery4.jpg" alt="">
+<img src="assets/coursera-cert.jpg" alt="">
+<img src="assets/netcad-cert.jpg" alt="">
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="contact">
+
+<p>Email : sanchita@gmail.com</p>
+<p>Phone : +91 XXXXX XXXXX</p>
+<p>Location : Maharashtra, India</p>
+
+<div class="socials">
+
+<a href="#">LinkedIn</a>
+<a href="#">GitHub</a>
+<a href="#">Instagram</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+© 2026 Sanchita Jadhav | Digital Portfolio
+
+</footer>
+
+<script>
+
+/* Dark Mode */
+
+function toggleMode(){
+    document.body.classList.toggle("light-mode");
+}
+
+/* Scroll Animation */
+
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll',()=>{
+
+cards.forEach(card=>{
+
+const cardTop = card.getBoundingClientRect().top;
+
+if(cardTop < window.innerHeight - 100){
+
+card.style.opacity = "1";
+card.style.transform = "translateY(0)";
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity = "0";
+card.style.transform = "translateY(50px)";
+card.style.transition = "0.7s";
+
+});
+
+/* Gallery Click Zoom */
+
+const images = document.querySelectorAll('.gallery img');
+
+images.forEach(img=>{
+
+img.addEventListener('click',()=>{
+
+img.classList.toggle('zoom');
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
